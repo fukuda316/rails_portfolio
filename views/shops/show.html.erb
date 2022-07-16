@@ -1,0 +1,77 @@
+<%= stylesheet_link_tag "shop", :media => "all" %>
+<div class="main-wrapper">
+  <div class="reviews">
+    <% @reviews.each do |r| %>
+      <div class="review border-class">
+        <div class="shop-name border-bottom-class">
+          <%= @shop.name %>
+        </div>
+        <div class="shop-info border-bottom-class">
+          <div id="private_room_<%= r.id %>">
+            <label>個室</label>
+            <% if r.private_room %>
+              <label>あり</label>
+            <% else %>
+              <label>なし</label>
+            <% end %>
+          </div>
+          <div id="star_rate_next_seat_distance_<%= r.id %>">
+            <label>隣席との距離</label>
+          </div>
+          <div id="disinfection_<%= r.id %>">
+            <label>アルコール消毒</label>
+            <% if r.disinfection %>
+              <label>あり</label>
+            <% else %>
+              <label>なし</label>
+            <% end %>
+          </div>
+          <div id="mask_staff_<%= r.id %>">
+            <label>顧客マスク着用</label>
+            <% if r.mask_staff %>
+              <label>あり</label>
+            <% else %>
+              <label>なし</label>
+            <% end %>
+          </div>
+          <div id="mask_staff_<%= r.id %>">
+            <label>従業員マスク着用</label>
+            <% if r.mask_staff %>
+              <label>あり</label>
+            <% else %>
+              <label>なし</label>
+            <% end %>
+          </div>
+          <div id="star_rate_measures_staff<%= r.id %>">
+            <label>感染症対策</label>
+          </div>
+        </div>
+        <div class="review-body">
+          <%= r.body %>
+          <script>
+            $('#star_rate_next_seat_distance_<%=r.id%>').raty({
+              size      : 36,
+              starOff   : '<%= asset_path('star-off.png') %>',
+              starOn    : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half      : true,
+              readOnly: true,
+              score: <%= r.next_seat_distance %>,
+            });
+          </script>
+          <script>
+            $('#star_rate_measures_staff<%=r.id%>').raty({
+              size      : 36,
+              starOff   : '<%= asset_path('star-off.png') %>',
+              starOn    : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half      : true,
+              readOnly: true,
+              score: <%= r.measures_staff %>,
+            });
+          </script>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

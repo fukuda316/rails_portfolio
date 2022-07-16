@@ -1,0 +1,22 @@
+<%= stylesheet_link_tag "sessions", :media => "all" %>
+<div class="main-wrapper">
+  <%= form_for(:session, url: login_path) do |f| %>
+    <div class="login">
+      <div>
+        <%= f.label :email %>
+      </div>
+      <div>
+        <%= f.email_field :email %>
+      </div>
+      <div>
+        <%= f.label :password %>
+      </div>
+      <div>
+        <%= f.password_field :password %>
+      </div>
+      <div>
+        <%= f.submit "Log in" %>
+      </div>
+    </div>
+  <% end %>
+</div>

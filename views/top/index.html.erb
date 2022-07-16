@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag "shop", :media => "all" %>
+<div class="main-wrapper">
+  <div class="shops">
+    <% @shops.each do |shop| %>
+      <div class="shop border-class">
+        <div class="shop-name border-bottom-class">
+          <%= shop.name %>
+        </div>
+        <div class="shop-image border-bottom-class">
+          <%= image_tag "#{shop.image_name}", class: "image" %>
+        </div>
+        <div class="shop-info border-bottom-class">
+          <ul>
+            <li><label>　　住所　:　</label><%= shop.location %></li>
+            <li><label>　　種別　:　</label><%= shop.genre %></li>
+            <li><label>　　価格　:　</label><%= shop.price %></li>
+            <li><label>営業時間　:　</label><%= shop.opening_hours %></li>
+            <li>
+              <% if shop.private_room %>
+                <p>　　個室　:　あり</p>
+              <% else %>
+                <p>　　個室　:　なし</p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div class="shop-link border-bottom-class">
+          <%= link_to("店舗情報", "/shops/#{shop.id}", {class: "link"}) %>
+          <%= link_to("クチコミ投稿", "/reviews/post/#{shop.id}", {class: "link"}) %>
+        </div>
+        <div class="shop-intro">
+          <%= shop.introduction %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

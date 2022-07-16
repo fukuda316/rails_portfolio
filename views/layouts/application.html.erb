@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_pack_tag 'application' %>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+    <!-- スマホナビの表示・非表示 -->
+    <script>
+      $(function() {
+        const hum = $('#hamburger, .close')
+        const nav = $('.sp-nav')
+        hum.on('click', function(){
+           nav.toggleClass('toggle');
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="pc-nav">
+        <ul>
+          <% if !logged_in? %>
+            <li><%= link_to "新規登録", "/signup", { class: "link"} %></li>
+            <li><%= link_to "ログイン", "/login", { class: "link"} %></li>
+            <li><%= link_to "ゲストログイン", "/guest_login", {method: :post, class: "link"} %></li>
+          <% else %>
+            <li><%= link_to "ログアウト", "/logout", {method: :delete, class: "link"} %></li>
+          <% end %>
+          <li><a href="/">トップページ</a></li>
+          <li><a href="#">検索</a></li>
+          <li><a href="/shops/index">店舗一覧</a></li>
+        </ul>
+      </nav>
+      <nav class="sp-nav">
+        <ul>
+          <% if !logged_in? %>
+            <li><%= link_to "新規登録", "/signup", { class: "link"} %></li>
+            <li><%= link_to "ログイン", "/login", { class: "link"} %></li>
+            <li><%= link_to "ゲストログイン", "/guest_login", {method: :post, class: "link"} %></li>
+          <% else %>
+            <li><%= link_to "ログアウト", "/logout", {method: :delete, class: "link"} %></li>
+          <% end %>
+          <li><a href="/">トップページ</a></li>
+          <li><a href="#">検索</a></li>
+          <li><a href="/shops/index">店舗一覧</a></li>
+          <li class="close"><span>閉じる</span></li>
+        </ul>
+      </nav>
+      <div id="hamburger">
+         <span></span>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>

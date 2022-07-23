@@ -1,0 +1,127 @@
+// Place all the styles related to the shop controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.shops{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: rgba(255, 165, 0, 0.05);
+  padding: 20px;
+  margin: 20px 0px 20px 0;
+  border-radius: 15px;
+}
+
+.shop{
+  flex-basis: 30%;
+  height: 550px;
+  background-color: rgba(255, 165, 0, 0.1);
+  margin: 8px;
+  color: rgb(255, 165, 0);
+  border-radius: 15px;
+}
+
+@media(max-width: 670px){
+  .shop{
+    flex-basis: 100%;
+  }
+}
+
+.shop .shop-name {
+  border-radius: 15px, 15px, 0, 0;
+  text-align: center;
+  background-color: rgba(255, 165, 0, 0.3);
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff
+}
+
+
+.shop .shop-image {
+  text-align: center;
+}
+
+.shop .shop-image img.image{
+  width: 88%;
+  height: 240px;
+}
+
+.shop .shop-info {
+}
+
+@media(max-width: 670px){
+  .shop .shop-info{
+    font-size: 8px;
+  }
+}
+
+.shop .shop-info ul {
+  list-style:none;
+}
+
+.shop .shop-link {
+  padding: 2px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  list-style: none;
+  background-color: rgba(255, 165, 0, 0.3);
+}
+.shop .shop-link .link {
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0 auto;
+}
+.shop .shop-link .link:hover {
+  text-decoration: underline;
+}
+
+.shop .shop-intro {
+  border-radius: 0, 0, 15px, 15px;
+}
+
+.reviews{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: rgba(255, 165, 0, 0.05);
+  padding: 20px;
+  margin: 20px 0px 20px 0;
+  border-radius: 15px;
+}
+
+.reviews .review{
+  flex-basis: 30%;
+  height: 240px;
+  background-color: rgba(255, 165, 0, 0.1);
+  margin: 8px;
+  color: rgb(255, 165, 0);
+  border-radius: 15px;
+}
+
+@media(max-width: 670px){
+  .reviews .review{
+    flex-basis: 100%;
+  }
+}
+
+.reviews .review .shop-name {
+  border-radius: 15px, 15px, 0, 0;
+  text-align: center;
+  background-color: rgba(255, 165, 0, 0.3);
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff
+}
+
+.reviews .review .shop-info ul {
+  list-style:none;
+}
+
+.reviews .review .review-body {
+  border-radius: 0, 0, 15px, 15px;
+}

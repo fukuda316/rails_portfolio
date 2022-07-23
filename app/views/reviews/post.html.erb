@@ -1,0 +1,73 @@
+<%= stylesheet_link_tag "reviews", :media => "all" %>
+<div class="main-wrapper">
+  <div class="post">
+    <%= form_for @review do |f| %>
+      <div class="shop-name">
+        <label><%= @shop.name %></label>
+        <%= f.hidden_field :shop_id, value: @shop.id %>
+      </div>
+      <div id="private_room">
+        <label>個室</label>
+        <%= f.radio_button :private_room, :true %>
+        <%= f.label :private_room_true, "あり" %>
+        <%= f.radio_button :private_room, :false %>
+        <%= f.label :private_room_false, "なし" %>
+      </div>
+      <div id="star_next_seat_distance">
+        <%= f.label :next_seat_distance,'隣席との距離 ' %>
+      </div>
+      <div id="disinfection">
+        <label>アルコール消毒</label>
+        <%= f.radio_button :disinfection, :true %>
+        <%= f.label :disinfection_true, "あり" %>
+        <%= f.radio_button :disinfection, :false %>
+        <%= f.label :disinfection_false, "なし" %>
+      </div>
+      <div id="mask_customer">
+        <label>顧客マスク着用</label>
+        <%= f.radio_button :mask_customer, :true %>
+        <%= f.label :mask_customer_true, "あり" %>
+        <%= f.radio_button :mask_customer, :false %>
+        <%= f.label :mask_customer_false, "なし" %>
+      </div>
+      <div id="mask_staff">
+        <label>従業員マスク着用</label>
+        <%= f.radio_button :mask_staff, :true %>
+        <%= f.label :mask_staff_true, "あり" %>
+        <%= f.radio_button :mask_staff, :false %>
+        <%= f.label :mask_staff_false, "なし" %>
+      </div>
+      <div id="star_measures_staff">
+        <%= f.label :measures_staff,'従業員の感染症対策 ' %>
+      </div>
+      <div id="body">
+        <%= f.text_field :body, class: "text-field", :size=>"30x30" %>
+      </div>
+      <%= f.submit '投稿', class: "submit-btn" %>
+    <% end %>
+    
+      <!-- 評価javascript -->
+      <script>
+      $('#star_next_seat_distance').raty({
+        size   : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'review[next_seat_distance]',
+        half: true,
+      });
+      </script>  
+    
+      <!-- 評価javascript -->
+      <script>
+      $('#star_measures_staff').raty({
+        size   : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'review[measures_staff]',
+        half: true,
+      });
+    </script>
+  </div>
+</div>
